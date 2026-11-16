@@ -1,0 +1,73 @@
+/*
+ * Horse page: structure only.
+ * Colors, fonts and the final layout are still to be designed, so this
+ * just keeps the first draft readable. Text styles come from Astra.
+ */
+
+.ajr-horse {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 2rem 1rem 3rem;
+}
+
+.ajr-horse__photos {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	gap: 0.75rem;
+	margin-bottom: 2rem;
+}
+
+.ajr-horse__photo {
+	display: block;
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+}
+
+.ajr-horse__facts {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 1rem 2rem;
+	margin: 0 0 2rem;
+}
+
+.ajr-horse__fact dt {
+	font-size: 0.8em;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+.ajr-horse__fact dd {
+	margin: 0;
+}
+
+.ajr-horse__description,
+.ajr-horse__cta,
+.ajr-horse__section {
+	margin-bottom: 2rem;
+}
+
+.ajr-horse__button {
+	display: inline-block;
+	padding: 0.75em 1.5em;
+	border: 2px solid currentColor;
+	text-decoration: none;
+}
+
+.ajr-horse__video {
+	max-width: 720px;
+	margin-bottom: 1rem;
+}
+
+.ajr-horse__video iframe {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 9;
+}
+
+.ajr-horse__section ul {
+	margin: 0;
+	padding-left: 1.25rem;
+}

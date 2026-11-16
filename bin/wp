@@ -1,0 +1,19 @@
+#!/bin/sh
+# Runs WP-CLI against the Local site "applejack" using Local's own PHP and database.
+# The site must be started in the Local app first.
+# Usage: bin/wp plugin list
+LOCAL_DATA="$HOME/Library/Application Support/Local"
+SITE_ID="_dMCh2vvE"
+SITE_ROOT="$HOME/Local Sites/applejack/app/public"
+PHP_BIN="$LOCAL_DATA/lightning-services/php-8.2.35+0/bin/darwin-arm64/bin/php"
+WP_CLI="/Applications/Local.app/Contents/Resources/extraResources/bin/wp-cli/wp-cli.phar"
+MYSQL_BIN="$LOCAL_DATA/lightning-services/mysql-8.0.35+4/bin/darwin-arm64/bin"
+
+if [ ! -S "$LOCAL_DATA/run/$SITE_ID/mysql/mysqld.sock" ]; then
+  echo "The applejack site isn't running. Start it in the Local app, then try again." >&2
+  exit 1
+fi
+
+export PHPRC="$LOCAL_DATA/run/$SITE_ID/conf/php"
+export PATH="$MYSQL_BIN:$PATH"
+exec "$PHP_BIN" "$WP_CLI" --path="$SITE_ROOT" "$@"

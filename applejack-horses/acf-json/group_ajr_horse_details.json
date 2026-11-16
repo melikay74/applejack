@@ -1,0 +1,308 @@
+{
+    "key": "group_ajr_horse_details",
+    "title": "Horse Details",
+    "fields": [
+        {
+            "key": "field_ajr_tab_details",
+            "label": "Details",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_ajr_categories",
+            "label": "Show on these pages",
+            "name": "categories",
+            "type": "taxonomy",
+            "instructions": "Tick every page this horse should appear on.",
+            "required": 0,
+            "taxonomy": "horse_category",
+            "field_type": "checkbox",
+            "add_term": 0,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 0
+        },
+        {
+            "key": "field_ajr_status",
+            "label": "Status",
+            "name": "status",
+            "type": "select",
+            "required": 1,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "choices": {
+                "available": "Available",
+                "sale_pending": "Sale Pending",
+                "sold": "Sold",
+                "not_for_sale": "Not for Sale"
+            },
+            "default_value": "available",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "array"
+        },
+        {
+            "key": "field_ajr_sex",
+            "label": "Sex",
+            "name": "sex",
+            "type": "select",
+            "required": 1,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "choices": {
+                "mare": "Mare",
+                "stallion": "Stallion",
+                "gelding": "Gelding",
+                "filly": "Filly",
+                "colt": "Colt"
+            },
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "array"
+        },
+        {
+            "key": "field_ajr_foal_date",
+            "label": "Foal Date",
+            "name": "foal_date",
+            "type": "date_picker",
+            "instructions": "If only the year is known, use January 1.",
+            "required": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "display_format": "F j, Y",
+            "return_format": "Ymd",
+            "first_day": 0
+        },
+        {
+            "key": "field_ajr_breed",
+            "label": "Breed or Cross",
+            "name": "breed",
+            "type": "taxonomy",
+            "instructions": "Pick one, or use the + to add a new one.",
+            "required": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "taxonomy": "horse_breed",
+            "field_type": "select",
+            "allow_null": 1,
+            "add_term": 1,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "id",
+            "multiple": 0
+        },
+        {
+            "key": "field_ajr_color",
+            "label": "Color",
+            "name": "color",
+            "type": "taxonomy",
+            "instructions": "Pick one, or use the + to add a new one.",
+            "required": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "taxonomy": "horse_color",
+            "field_type": "select",
+            "allow_null": 1,
+            "add_term": 1,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "id",
+            "multiple": 0
+        },
+        {
+            "key": "field_ajr_height",
+            "label": "Height (hands)",
+            "name": "height",
+            "type": "number",
+            "instructions": "For example 16.2 for 16 hands 2 inches.",
+            "required": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "min": 8,
+            "max": 20,
+            "step": 0.1,
+            "append": "hh"
+        },
+        {
+            "key": "field_ajr_discipline",
+            "label": "Discipline",
+            "name": "discipline",
+            "type": "taxonomy",
+            "instructions": "Pick one or more, or use the + to add a new one.",
+            "required": 0,
+            "taxonomy": "horse_discipline",
+            "field_type": "multi_select",
+            "allow_null": 1,
+            "add_term": 1,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "id",
+            "multiple": 0
+        },
+        {
+            "key": "field_ajr_description",
+            "label": "Description",
+            "name": "description",
+            "type": "wysiwyg",
+            "required": 0,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_ajr_tab_media",
+            "label": "Photos & Video",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_ajr_photos",
+            "label": "Photos",
+            "name": "photos",
+            "type": "gallery",
+            "instructions": "Drag to reorder. The first photo is the one shown in search results.",
+            "required": 0,
+            "return_format": "id",
+            "preview_size": "medium",
+            "insert": "append",
+            "library": "all",
+            "min": 0,
+            "max": 0,
+            "mime_types": "jpg, jpeg, png, webp"
+        },
+        {
+            "key": "field_ajr_videos",
+            "label": "YouTube Videos",
+            "name": "videos",
+            "type": "repeater",
+            "instructions": "Paste the address of each YouTube video.",
+            "required": 0,
+            "layout": "block",
+            "button_label": "Add Video",
+            "min": 0,
+            "max": 0,
+            "sub_fields": [
+                {
+                    "key": "field_ajr_video_url",
+                    "label": "Video address",
+                    "name": "video_url",
+                    "type": "oembed",
+                    "required": 1,
+                    "width": "",
+                    "height": 200,
+                    "parent_repeater": "field_ajr_videos"
+                }
+            ]
+        },
+        {
+            "key": "field_ajr_tab_pedigree",
+            "label": "Sire & Dam",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_ajr_sire",
+            "label": "Sire",
+            "name": "sire",
+            "type": "post_object",
+            "instructions": "The sire needs his own horse record first, including outside stallions.",
+            "required": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "post_type": [ "horse" ],
+            "allow_null": 1,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
+        },
+        {
+            "key": "field_ajr_dam",
+            "label": "Dam",
+            "name": "dam",
+            "type": "post_object",
+            "instructions": "The dam needs her own horse record first.",
+            "required": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "post_type": [ "horse" ],
+            "allow_null": 1,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
+        },
+        {
+            "key": "field_ajr_tab_links",
+            "label": "Social Links",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_ajr_social_links",
+            "label": "Social Media Links",
+            "name": "social_links",
+            "type": "repeater",
+            "instructions": "Links to this horse's posts or pages. They show below the main details.",
+            "required": 0,
+            "layout": "table",
+            "button_label": "Add Link",
+            "min": 0,
+            "max": 0,
+            "sub_fields": [
+                {
+                    "key": "field_ajr_social_platform",
+                    "label": "Platform",
+                    "name": "platform",
+                    "type": "select",
+                    "required": 1,
+                    "wrapper": { "width": "30", "class": "", "id": "" },
+                    "choices": {
+                        "facebook": "Facebook",
+                        "instagram": "Instagram",
+                        "youtube": "YouTube",
+                        "tiktok": "TikTok",
+                        "website": "Website",
+                        "other": "Other"
+                    },
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "array",
+                    "parent_repeater": "field_ajr_social_links"
+                },
+                {
+                    "key": "field_ajr_social_url",
+                    "label": "Link",
+                    "name": "url",
+                    "type": "url",
+                    "required": 1,
+                    "wrapper": { "width": "70", "class": "", "id": "" },
+                    "parent_repeater": "field_ajr_social_links"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "horse"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "The entry form for a horse record.",
+    "show_in_rest": 0,
+    "modified": 1794787200
+}
