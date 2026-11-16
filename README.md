@@ -13,8 +13,12 @@ Custom WordPress plugin for applejackridgefarm.com. It adds a Horses section to 
 | `applejack-horses/acf-json/` | The horse form's field definitions. |
 | `applejack-horses/includes/helpers.php` | Functions the templates call to read a horse's data. |
 | `applejack-horses/includes/templates.php` | Tells WordPress to use our template and stylesheet on horse pages. |
+| `applejack-horses/includes/search.php` | The `[horse_search]` shortcode: reads the visitor's choices and finds the matching horses. |
 | `applejack-horses/templates/single-horse.php` | The page for one horse. |
+| `applejack-horses/templates/horse-search.php` | The search form and results grid. |
+| `applejack-horses/templates/horse-card.php` | One horse in the results. |
 | `applejack-horses/assets/css/horse.css` | Styles for the horse page. |
+| `applejack-horses/assets/css/horse-search.css` | Styles for the search form, grid and card. |
 | `bin/wp` | Runs WP-CLI against the local site. |
 
 ## Local site
@@ -31,6 +35,22 @@ The plugin needs the Secure Custom Fields plugin to be active.
     bin/wp post list --post_type=horse
 
 It has this machine's Local paths written into it. If Local updates its PHP version or the site is recreated, update the paths at the top of the file.
+
+## Putting the search on a page
+
+In Elementor, drag in the Shortcode widget and paste one of these:
+
+    [horse_search]
+    [horse_search category="new-foals" orderby="newest"]
+    [horse_search category="available-horses"]
+    [horse_search category="notables" filters="sex,breed,color,discipline"]
+
+- `category`: `new-foals`, `available-horses` or `notables`. Leave it out for every horse.
+- `orderby`: `name` (default) or `newest`.
+- `filters`: any of `sex, year, breed, color, height, discipline, status`, or `none`. Leave it out for all seven.
+- `search`: `no` hides the search-by-name box.
+
+A filter only offers values that a horse on that page actually has.
 
 ## Changing the form fields
 

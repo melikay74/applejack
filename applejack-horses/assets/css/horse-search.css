@@ -1,0 +1,107 @@
+/*
+ * Horse search: structure only.
+ * The form, the results grid and a plain card. Colors, fonts and the final
+ * card design are still to come. Text styles come from Astra.
+ */
+
+/* Form: fields wrap into as many columns as fit. */
+
+.ajr-search__form {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+	gap: 1rem;
+	align-items: end;
+	margin-bottom: 1.5rem;
+}
+
+.ajr-search__field,
+.ajr-search__actions {
+	margin: 0;
+}
+
+.ajr-search__field--q {
+	grid-column: 1 / -1;
+}
+
+.ajr-search__field label {
+	display: block;
+	margin-bottom: 0.25rem;
+	font-size: 0.8em;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+.ajr-search__field input,
+.ajr-search__field select {
+	width: 100%;
+}
+
+.ajr-search__actions {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
+.ajr-search__count {
+	margin-bottom: 1rem;
+}
+
+/* Results grid. */
+
+.ajr-search__results {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	gap: 1.5rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* Card. */
+
+.ajr-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	color: inherit;
+	text-decoration: none;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.ajr-card__photo {
+	display: block;
+	aspect-ratio: 4 / 3;
+	background: rgba(0, 0, 0, 0.06); /* Shows when a horse has no photo yet. */
+}
+
+.ajr-card__photo img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.ajr-card__body {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	padding: 1rem;
+}
+
+.ajr-card__name {
+	font-size: 1.25em;
+	font-weight: 600;
+}
+
+.ajr-card__status {
+	font-size: 0.8em;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+.ajr-card:hover .ajr-card__name,
+.ajr-card:focus-visible .ajr-card__name {
+	text-decoration: underline;
+}

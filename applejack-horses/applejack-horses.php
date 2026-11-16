@@ -21,6 +21,7 @@ require_once AJR_HORSES_DIR . 'includes/post-type.php';
 require_once AJR_HORSES_DIR . 'includes/fields.php';
 require_once AJR_HORSES_DIR . 'includes/helpers.php';
 require_once AJR_HORSES_DIR . 'includes/templates.php';
+require_once AJR_HORSES_DIR . 'includes/search.php';
 
 /**
  * On activation: register everything once so the /horses/ addresses work
